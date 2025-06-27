@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import type { MapType } from './types';
 
 interface BingoFormProps {
   onGenerate: (form: {
@@ -9,7 +10,7 @@ interface BingoFormProps {
 }
 
 const BingoForm: React.FC<BingoFormProps> = ({ onGenerate }) => {
-  const [mapType, setMapType] = useState('snow');
+  const [mapType, setMapType] = useState<MapType>('snow');
   const [nightlord, setNightlord] = useState('dogs');
   const [nightfarer, setNightfarer] = useState('recluse');
 
@@ -22,7 +23,7 @@ const BingoForm: React.FC<BingoFormProps> = ({ onGenerate }) => {
     <form onSubmit={handleSubmit}>
       <label>
         Map Type:
-        <select value={mapType} onChange={(e) => setMapType(e.target.value)}>
+        <select value={mapType} onChange={(e) => setMapType(e.target.value as MapType)}>
           <option value="snow">Snow</option>
           <option value="rot">Rot</option>
           <option value="castle">Castle</option>

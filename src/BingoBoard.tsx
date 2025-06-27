@@ -1,8 +1,7 @@
 import React from 'react';
-import type { Square } from './types';
 
 interface Props {
-  squares: Square[];
+  squares: string[];
 }
 
 const BingoBoard: React.FC<Props> = ({ squares }) => {
@@ -10,8 +9,7 @@ const BingoBoard: React.FC<Props> = ({ squares }) => {
     <div className="bingo-board">
       {squares.map((square, index) => (
         <div key={index} className="bingo-square">
-          <strong>{square.category.toUpperCase()}</strong>
-          <p>{square.description}</p>
+          <strong>{square}</strong>
         </div>
       ))}
     </div>
