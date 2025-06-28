@@ -21,4 +21,4 @@ Below the list, you can download a JSON file of all eligible squares. This file 
 
 ## Contributing
 
-If you'd like to make suggestions or make changes, you can do so via this app's github or reach out to me directly on discord.
+If you'd like to make suggestions or make changes, you can do so via this [app's github](https://github.com/tappmax/nightreign-bingo-list-creator) or reach out to [me directly on discord](735217635536535653).
