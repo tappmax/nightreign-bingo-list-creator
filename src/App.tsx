@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { squares as allSquares } from './data';
 import BingoBoard from './BingoBoard';
 import BingoForm from './BingoForm';
+import type { MapType, Nightfarer } from './types';
 
 const App: React.FC = () => {
   const [boardSquares, setBoardSquares] = useState<string[]>([]);
@@ -11,9 +12,9 @@ const App: React.FC = () => {
     mapType,
     nightfarer,
   }: {
-    mapType: string;
-    nightlord: string;
-    nightfarer: string;
+    mapType: MapType;
+    // nightlord: string;
+    nightfarer: Nightfarer;
   }) => {  
     // 1. Filter other eligible squares
     const eligible = allSquares.filter(
@@ -29,7 +30,7 @@ const App: React.FC = () => {
         description += ' as ' + sq.nightfarerSpecific;
       }
       if (sq.mapSpecific) {
-        description += ' in the ' + sq.mapSpecific + ' place';
+        description += ' at ' + sq.mapSpecific;
       }
       return description
     });
@@ -68,10 +69,18 @@ const App: React.FC = () => {
 
   return (
     <div>
-      <h1>Nightfarer Bingo</h1>
+      <h1>Nightreign bingo square list generator</h1>
       <BingoForm onGenerate={generateBoard} />
       <BingoBoard squares={boardSquares} />
-      <button onClick={exportBoardAsJson}>Export eligible squares as JSON</button>
+      <h3>List of eligible squares</h3>
+      <textarea rows={25} cols={90} value={
+          eligibleSquares && eligibleSquares.map(x => (
+              `\n"name": "${x}"`
+            )
+          )
+        } />
+        <br />
+      <button className="mt10" onClick={exportBoardAsJson}>Download eligible squares JSON</button>
  </div>
   );
 };

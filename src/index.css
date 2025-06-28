@@ -1,3 +1,7 @@
+html {
+  font-family: sans-serif;
+}
+
 .bingo-board {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
@@ -13,4 +17,8 @@
   display:flex;
   align-items: center;
   justify-content: center;;
+}
+
+.mt10 {
+  margin-top: 10px;
 }

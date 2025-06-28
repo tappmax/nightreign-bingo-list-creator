@@ -5,7 +5,8 @@ interface Props {
 }
 
 const BingoBoard: React.FC<Props> = ({ squares }) => {
-  return (
+  return (<>
+    <h3>Example Board</h3>
     <div className="bingo-board">
       {squares.map((square, index) => (
         <div key={index} className="bingo-square">
@@ -13,7 +14,7 @@ const BingoBoard: React.FC<Props> = ({ squares }) => {
         </div>
       ))}
     </div>
-  );
+    </>);
 };
 
 export default BingoBoard;
