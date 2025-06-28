@@ -8,7 +8,7 @@ export type Nightfarer =
   | 'Duchess'
   | 'Revenant' 
   | 'Executor';
-export type MapType = 
+export type ShiftingEarth = 
   | 'The Mountaintop' 
   | 'The Rotted Woods' 
   | 'Noklateo, The Shrouded City' 
@@ -18,6 +18,5 @@ export type MapType =
 export interface Square {
   description: string;
   category: Category;
-  nightfarerSpecific?: Nightfarer;
-  mapSpecific?: MapType
+  compatableWith?: (Nightfarer | ShiftingEarth)[]
 }

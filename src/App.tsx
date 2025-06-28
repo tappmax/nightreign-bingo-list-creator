@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { squares as allSquares } from './data';
 import BingoBoard from './BingoBoard';
 import BingoForm from './BingoForm';
-import type { MapType, Nightfarer } from './types';
+import type { ShiftingEarth, Nightfarer } from './types';
 
 const App: React.FC = () => {
   const [boardSquares, setBoardSquares] = useState<string[]>([]);
@@ -12,7 +12,7 @@ const App: React.FC = () => {
     mapType,
     nightfarer,
   }: {
-    mapType: MapType;
+    mapType: ShiftingEarth;
     // nightlord: string;
     nightfarer: Nightfarer;
   }) => {  
@@ -20,18 +20,12 @@ const App: React.FC = () => {
     const eligible = allSquares.filter(
       (sq) =>
         sq.category === 'common' ||
-        (sq.category === 'character-specific' &&
-          sq.nightfarerSpecific === nightfarer) || 
-          (sq.category === 'map-specific' &&
-          sq.mapSpecific === mapType)
+        (sq.compatableWith?.length &&
+          (sq.compatableWith.some(x => (x as Nightfarer) === nightfarer) || 
+          sq.compatableWith.some(x => (x as ShiftingEarth) === mapType))
+        )
     ).map(sq => {
       let description = sq.description;
-      if (sq.nightfarerSpecific) {
-        description += ' as ' + sq.nightfarerSpecific;
-      }
-      if (sq.mapSpecific) {
-        description += ' at ' + sq.mapSpecific;
-      }
       return description
     });
   

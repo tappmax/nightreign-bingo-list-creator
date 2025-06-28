@@ -1,69 +1,24 @@
-# React + TypeScript + Vite
+# Getting started
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Set up your data
 
-Currently, two official plugins are available:
+1. Open `./src/data.ts`.
+2. Look at the format of the data, read the comments.
+3. Delete the filler/example squares.
+4. Fill out your own squares in the format of the example squares.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Using the web app
 
-## Expanding the ESLint configuration
+1. Use the form to select the Shifting Earth and Nightfarer types.
+2. Click the "Generate Bingo Board/Eligible Squares
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+The app generates an example bingo board with "Defeat the Nightlord" in the middle.
+All squares used are compatible with the selections made in the form.
+If you change form options, click the button again to make sure your changes apply.
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+Below the bingo board, it will list all eligible squares for the options selected in the form.
+Below the list, you can download a JSON file of all eligible squares. This file is compatable with existing bingo brawlers board generator programs.
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
+## Contributing
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
-
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+If you'd like to make suggestions or make changes, you can do so via this app's github or reach out to me directly on discord.

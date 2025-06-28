@@ -2,45 +2,36 @@ import type { Square } from './types';
 
 export const squares: Square[] = [
   // set all map specific squares here in this format
-  //  rot squares
-  { description: 'Don\'t get the power', category: 'map-specific', mapSpecific: 'The Rotted Woods' },
-  //  snow squares
-  { description: 'Don\'t get the power', category: 'map-specific', mapSpecific: 'The Mountaintop' },
-  //  castle squares
-  { description: 'Defeat Astel', category: 'map-specific', mapSpecific: 'Noklateo, The Shrouded City' },
-  //  lava squares
-  //  common castle squares
-  { description: 'Beat bottom boss', category: 'map-specific', mapSpecific: 'The Castle' },
-  { description: 'Beat top boss', category: 'map-specific', mapSpecific: 'The Castle' },
-  { description: 'Clear castle', category: 'map-specific', mapSpecific: 'The Castle' },
+  { description: 'Don\'t get the power', category: 'map-specific', compatableWith: ['The Mountaintop', 'The Rotted Woods'] }, 
+  { description: 'Defeat Astel', category: 'map-specific', compatableWith: ['Noklateo, The Shrouded City'] },
+  { description: 'Beat bottom boss', category: 'map-specific', compatableWith: ['The Castle'] },
+  { description: 'Beat top boss', category: 'map-specific', compatableWith: ['The Castle'] },
+  { description: 'Clear castle', category: 'map-specific', compatableWith: ['The Castle'] },
   // set all character specific squares here in this format
-  //  recluse squares
   {
     description: 'beat a boss without using skill',
     category: 'character-specific',
-    nightfarerSpecific: 'Recluse',
+    compatableWith: ['Recluse', 'Duchess', 'Wylder'],
   },
-  //  raider squares
   {
     description: 'beat dungeon without healing',
     category: 'character-specific',
-    nightfarerSpecific: 'Raider',
+    compatableWith: ['Raider'],
   },
   {
     description: 'no summons boss fight',
     category: 'character-specific',
-    nightfarerSpecific: 'Raider',
+    compatableWith: ['Raider'],
   },
-  //  duchess squares
   {
     description: 'never use flask entire area',
     category: 'character-specific',
-    nightfarerSpecific: 'Duchess',
+    compatableWith: ['Duchess'],
   },
   {
     description: 'jump only to boss',
     category: 'character-specific',
-    nightfarerSpecific: 'Duchess',
+    compatableWith: ['Duchess'],
   },
   //  put in the rest of the classes
   // Set all common/general squares here in this format. All these are just for an example.

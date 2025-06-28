@@ -1,16 +1,16 @@
 import React, { useState } from 'react';
-import type { MapType, Nightfarer } from './types';
+import type { ShiftingEarth, Nightfarer } from './types';
 
 interface BingoFormProps {
   onGenerate: (form: {
-    mapType: MapType;
+    mapType: ShiftingEarth;
     // nightlord: string;
     nightfarer: Nightfarer;
   }) => void;
 }
 
 const BingoForm: React.FC<BingoFormProps> = ({ onGenerate }) => {
-  const [mapType, setMapType] = useState<MapType>('Noklateo, The Shrouded City');
+  const [mapType, setMapType] = useState<ShiftingEarth>('Noklateo, The Shrouded City');
   // const [nightlord, setNightlord] = useState('dogs');
   const [nightfarer, setNightfarer] = useState<Nightfarer>('Recluse');
 
@@ -21,9 +21,9 @@ const BingoForm: React.FC<BingoFormProps> = ({ onGenerate }) => {
 
   return (
     <form onSubmit={handleSubmit}>
-      <label>
-        Map Type:
-        <select value={mapType} onChange={(e) => setMapType(e.target.value as MapType)}>
+      <label className="mt10 displayBlock">
+        <strong className="mr10">Map Type:</strong>
+        <select value={mapType} onChange={(e) => setMapType(e.target.value as ShiftingEarth)}>
           <option value="Noklateo, The Shrouded City">Noklateo, The Shrouded City</option>
           <option value="The Rotted Woods">The Rotted Woods</option>
           <option value="The Mountaintop">The Mountaintop</option>
@@ -31,6 +31,7 @@ const BingoForm: React.FC<BingoFormProps> = ({ onGenerate }) => {
           <option value="The Castle">The Castle</option>
         </select>
       </label>
+      <br />
 
       {/* <label>
         Nightlord:
@@ -46,8 +47,8 @@ const BingoForm: React.FC<BingoFormProps> = ({ onGenerate }) => {
         </select>
       </label> */}
 
-      <label>
-        Nightfarer:
+      <label className="mt10 displayBlock">
+        <strong className="mr10">Nightfarer:</strong>
         <select value={nightfarer} onChange={(e) => setNightfarer(e.target.value as Nightfarer)}>
           <option value="Wylder">Wylder</option>
           <option value="Guardian">Guardian</option>
@@ -59,8 +60,8 @@ const BingoForm: React.FC<BingoFormProps> = ({ onGenerate }) => {
           <option value="Executor">Executor</option>
         </select>
       </label>
-
-      <button type="submit">Generate Bingo Board</button>
+      <br />
+      <button className="mt10" type="submit">Generate Bingo Board/Eligible Squares</button>
     </form>
   );
 };

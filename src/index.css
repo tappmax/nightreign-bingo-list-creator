@@ -22,3 +22,11 @@ html {
 .mt10 {
   margin-top: 10px;
 }
+
+.mr10 {
+  margin-right: 10px;
+}
+
+.displayBlock {
+  display: block;
+}
